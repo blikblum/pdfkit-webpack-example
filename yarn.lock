@@ -2693,10 +2693,10 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pdfkit@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/pdfkit/-/pdfkit-0.9.0.tgz#0d356363be4594d7d757238879dd701176f79f45"
-  integrity sha512-j/tJvvoEM7qMiOfodNkz6XRNBvAhVohWP1mUvgg+Xy8X8S3aMBpVGXJGZWNCoCUH2ywLidZSbHyn5mJaqv9umw==
+pdfkit@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/pdfkit/-/pdfkit-0.9.1.tgz#f07a66eebc64855f8345dccfd313f2d8f880f10f"
+  integrity sha512-45X/NjaynHVNd/866ETK9KmblL8Sqwmah1RPz04IzmZoEO+cvPid2UvkVfZQcS4Jeq/uWY+99qAq04NoigzWSA==
   dependencies:
     crypto-js "^3.1.9-1"
     fontkit "^1.0.0"

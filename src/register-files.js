@@ -1,15 +1,23 @@
 import fs from 'fs'
-import helveticaData from 'pdfkit/js/data/Helvetica.afm'
-import robotoRegular from './assets/fonts/Roboto-Regular.ttf'
-import robotoBold from './assets/fonts/Roboto-Medium.ttf'
-import bee from './assets/images/bee.png'
 
-//default Helvetica font
-fs.writeFileSync('data/Helvetica.afm', helveticaData)
+function registerBinaryFiles(ctx) {
+  ctx.keys().forEach(key => {
+    // extracts "./" from beginning of the key
+    fs.writeFileSync(key.substring(2), ctx(key))
+  });  
+}
 
-//custom fonts
-fs.writeFileSync('fonts/Roboto-Regular.ttf', robotoRegular)
-fs.writeFileSync('fonts/Roboto-Medium.ttf', robotoBold)
+function registerAFMFonts(ctx) {
+  ctx.keys().forEach(key => {
+    const match = key.match(/([^/]*\.afm$)/)    
+    if (match) {
+      // afm files must be stored on data path
+      fs.writeFileSync(`data/${match[0]}`, ctx(key))
+    }    
+  });  
+}
 
-// images
-fs.writeFileSync('images/bee.png', bee)
+registerBinaryFiles(require.context('./assets', true))
+
+// is good practice to register only required fonts to avoid the bundle size increase
+registerAFMFonts(require.context('pdfkit/js/data', false, /Helvetica.*\.afm$/))

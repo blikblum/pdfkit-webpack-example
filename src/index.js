@@ -55,8 +55,13 @@ function makePDF(PDFDocument, blobStream, lorem, iframe) {
 
   doc
     .fontSize(25)
+    .font('Courier')
     .text('And an image...')  
     .image('images/bee.png')
+
+  doc
+    .font('Courier-Bold')
+    .text('Finish...')
 
   // end and display the document in the iframe to the right
   doc.end();

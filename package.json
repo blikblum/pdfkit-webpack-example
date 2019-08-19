@@ -16,7 +16,7 @@
     "webpack-cli": "^3.3.7"
   },
   "scripts": {
-    "dev": "webpack --mode development --display-modules",
+    "dev": "webpack --mode development",
     "prod": "webpack --mode production"
   }
 }
